@@ -1,6 +1,6 @@
 # LAOHA - Waiting Room API
 
-REST API para a sala de esperas da LAOHA.
+REST API para e-commerce da OurClub
 
 ## Variáveis de ambiente
 
