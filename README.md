@@ -1,4 +1,4 @@
-# LAOHA - Waiting Room API
+# OurClub Store - Backend
 
 REST API para e-commerce da OurClub
 
