@@ -1,5 +1,7 @@
 import { createConnection } from 'typeorm';
 import DatabaseConfig from '@config/DataBaseConfig';
+import User from '@modules/user/infra/typeorm/entities/User';
+import Profile from '@modules/user/infra/typeorm/entities/Profile';
 
 createConnection({
   type: 'postgres',
@@ -9,6 +11,8 @@ createConnection({
   database: DatabaseConfig.database,
   port: DatabaseConfig.port,
   entities: [
+    User,
+    Profile,
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,
