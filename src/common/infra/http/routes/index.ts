@@ -1,9 +1,8 @@
-import { Request, Response, Router } from 'express';
+import { Router } from 'express';
+import userRouter from '@modules/user/infra/http/routes/UserRouter';
 
 const routes = Router();
 
-routes.get('/teste', (_req: Request, res: Response) => {
-  res.status(204);
-});
+routes.use('/users', userRouter);
 
 export default routes;

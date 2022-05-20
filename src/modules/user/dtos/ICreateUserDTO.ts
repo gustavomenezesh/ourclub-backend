@@ -1,7 +1,7 @@
 interface ICreateUserDTO {
-  profileId: number;
+  profileId?: number;
   name: string,
-  lastname: string;
+  lastName: string;
   email: string,
   phone: string,
   gender: string;
