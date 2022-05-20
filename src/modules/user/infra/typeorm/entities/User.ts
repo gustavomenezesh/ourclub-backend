@@ -6,9 +6,11 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
+import Adress from '@modules/adress/infra/typeorm/entities/Adress';
 import Profile from './Profile';
 
 @Entity('usuario')
@@ -58,6 +60,9 @@ class User {
   @ManyToOne(() => Profile, (profile) => profile.users)
   @JoinColumn([{ name: 'perfilId', referencedColumnName: 'id' }])
   profile!: Profile;
+
+  @OneToMany(() => Adress, (adress) => adress.user)
+  adresses?: Adress[];
 }
 
 export default User;
