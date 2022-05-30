@@ -11,7 +11,7 @@ interface IRequest {
 }
 
 @injectable()
-class CreateUserService {
+class CreateCategoryService {
   @inject(Types.CategoryRepository) private categoryRepository!: ICategoryRepository;
 
   public async execute({ data }: IRequest): Promise<Category> {
@@ -20,4 +20,4 @@ class CreateUserService {
   }
 }
 
-export default CreateUserService;
+export default CreateCategoryService;

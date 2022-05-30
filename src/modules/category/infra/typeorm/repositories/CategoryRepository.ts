@@ -20,7 +20,12 @@ class CategoryRepository implements ICategoryRepository {
     return this.ormRepository.findOne({ where, relations });
   }
 
-  public async list(where?: object | object[], relations?: string[], take?: number, skip?: number): Promise<[Category[], number]> {
+  public async list(
+    where?: object | object[],
+    relations?: string[],
+    take?: number,
+    skip?: number,
+  ): Promise<[Category[], number]> {
     return this.ormRepository.findAndCount({
       where, relations, take, skip,
     });
