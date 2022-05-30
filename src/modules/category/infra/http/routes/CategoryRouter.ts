@@ -5,5 +5,9 @@ const categoryRouter = Router();
 const categoryController = new CategoryController();
 
 categoryRouter.post('/', categoryController.create);
+categoryRouter.get('/', categoryController.list);
+
+categoryRouter.patch('/:categoryId', categoryController.update);
+categoryRouter.delete('/:categoryId', categoryController.delete);
 
 export default categoryRouter;
