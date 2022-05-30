@@ -1,5 +1,6 @@
 interface IUpdateSubCategoryDTO {
-    description: string;
+    description?: string;
+    enabled?: boolean;
 }
 
 export default IUpdateSubCategoryDTO;
