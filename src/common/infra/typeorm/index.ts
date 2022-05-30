@@ -4,6 +4,7 @@ import User from '@modules/user/infra/typeorm/entities/User';
 import Profile from '@modules/user/infra/typeorm/entities/Profile';
 import Adress from '@modules/adress/infra/typeorm/entities/Adress';
 import Category from '@modules/category/infra/typeorm/entities/Category';
+import SubCategory from '@modules/subcategory/infra/typeorm/entities/SubCategory';
 
 createConnection({
   type: 'postgres',
@@ -17,6 +18,7 @@ createConnection({
     Profile,
     Adress,
     Category,
+    SubCategory
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,
