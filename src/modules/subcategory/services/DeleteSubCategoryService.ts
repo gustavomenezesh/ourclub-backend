@@ -8,7 +8,7 @@ interface IRequest {
 }
 
 @injectable()
-class DeleteCategoryService {
+class DeleteSubCategoryService {
     @inject(Types.SubCategoryRepository) private subCategoryRepository!: ISubCategoryRepository;
 
     public async execute({ subCategoryId }: IRequest): Promise<void> {
@@ -19,5 +19,5 @@ class DeleteCategoryService {
     }
 }
 
-export default DeleteCategoryService;
+export default DeleteSubCategoryService;
 

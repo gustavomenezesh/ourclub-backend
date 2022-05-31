@@ -1,6 +1,6 @@
 import Types from '@common/container/types';
 import AppError from '@common/errors/AppError';
-import Schema from '@modules/category/infra/http/validators/UpdateCategoryValidator';
+import Schema from '@modules/subcategory/infra/http/validators/UpdateSubCategoryValidator';
 import { inject, injectable } from 'inversify';
 import * as Z from 'zod';
 import ISubCategoryRepository from '../repositories/ISubCategoryRepository';

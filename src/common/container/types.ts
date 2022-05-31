@@ -4,6 +4,7 @@ const Types = {
   UserRepository: Symbol('UserRepository'),
   ProfileRepository: Symbol('ProfileRepository'),
   SubCategoryRepository: Symbol('SubCategoryRepository'),
+  SizeRepository: Symbol('SizeRepository'),
 };
 
 export default Types;
