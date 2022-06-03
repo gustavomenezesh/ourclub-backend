@@ -4,9 +4,11 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
+import SubCategory from '@modules/subcategory/infra/typeorm/entities/SubCategory';
 
 @Entity('categoria')
 class Category {
@@ -27,6 +29,9 @@ class Category {
   @Exclude()
   @UpdateDateColumn({ type: 'timestamptz' })
   updatedAt!: Date;
+
+  @OneToMany(() => SubCategory, (Subcategory) => Subcategory.category)
+  subcategories?: SubCategory[];
 }
 
 export default Category;
