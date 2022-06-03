@@ -2,7 +2,7 @@ import AppContainer from '@common/container';
 import AppError from '@common/errors/AppError';
 import ParseZodValidationError from '@common/errors/ZodError';
 import CreateSubCategoryValidator from '@modules/subcategory/infra/http/validators/CreateSubCategoryValidator';
-import CreateCategoryService from '@modules/subcategory/services/CreateSubCategoryService';
+import CreateSubCategoryService from '@modules/subcategory/services/CreateSubCategoryService';
 import DeleteSubCategoryService from '@modules/subcategory/services/DeleteSubCategoryService';
 import ListSubCategoryService from '@modules/subcategory/services/ListSubCategoryService';
 import UpdateSubCategoryService from '@modules/subcategory/services/UpdateSubCategoryService';
@@ -24,7 +24,7 @@ class SubCategoryController {
             throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
         });
 
-        const createSubCategory = AppContainer.resolve<CreateCategoryService>(CreateCategoryService);
+        const createSubCategory = AppContainer.resolve<CreateSubCategoryService>(CreateSubCategoryService);
         const subCategory = await createSubCategory.execute({ data });
 
         return res.status(StatusCodes.CREATED).json({ id: subCategory.id });

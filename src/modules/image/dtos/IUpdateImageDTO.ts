@@ -1,8 +1,8 @@
-interface IUpdateSubCategoryDTO {
+interface IUpdateImageDTO {
     url?: string;
     token?: string;
     size?: string;
     enabled?: boolean;
 }
 
-export default IUpdateSubCategoryDTO;
+export default IUpdateImageDTO;

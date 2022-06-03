@@ -2,6 +2,8 @@ import AdressRepository from '@modules/adress/infra/repostories/AdressRepository
 import IAdressRepository from '@modules/adress/repositories/IAdressRepository';
 import CategoryRepository from '@modules/category/infra/typeorm/repositories/CategoryRepository';
 import ICategoryRepository from '@modules/category/repositories/ICategoryRepository';
+import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepository';
+import IImageRepository from '@modules/image/repositories/IImageRepository';
 import SizeRepository from '@modules/size/infra/typeorm/repositories/SizeRepository';
 import ISizeRepository from '@modules/size/repositories/ISizeRepository';
 import SubCategoryRepository from '@modules/subcategory/infra/typeorm/repositories/SubCategoryRepository';
@@ -23,5 +25,6 @@ container.bind<IAdressRepository>(Types.AdressRepository).to(AdressRepository);
 container.bind<ICategoryRepository>(Types.CategoryRepository).to(CategoryRepository);
 container.bind<ISubCategoryRepository>(Types.CategoryRepository).to(SubCategoryRepository);
 container.bind<ISizeRepository>(Types.CategoryRepository).to(SizeRepository);
+container.bind<IImageRepository>(Types.CategoryRepository).to(ImageRepository);
 
 export default container;
