@@ -7,6 +7,7 @@ import Category from '@modules/category/infra/typeorm/entities/Category';
 import SubCategory from '@modules/subcategory/infra/typeorm/entities/SubCategory';
 import Image from '@modules/image/infra/typeorm/entities/Image';
 import Size from '@modules/size/infra/typeorm/entities/Size';
+import Tag from '@modules/tag/infra/typeorm/entities/Tag';
 
 createConnection({
   type: 'postgres',
@@ -22,7 +23,8 @@ createConnection({
     Category,
     SubCategory,
     Image,
-    Size
+    Size,
+    Tag
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,
