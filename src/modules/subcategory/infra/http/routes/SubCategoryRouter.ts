@@ -4,7 +4,7 @@ import SubCategoryController from '@modules/subcategory/infra/http/controllers/S
 const subCategoryRouter = Router();
 const subCategoryController = new SubCategoryController();
 
-subCategoryRouter.get('/', subCategoryController.list);
+subCategoryRouter.get('/:category', subCategoryController.list);
 subCategoryRouter.post('/', subCategoryController.create);
 subCategoryRouter.patch('/:subcategoryId', subCategoryController.update);
 subCategoryRouter.delete('/:subcategoryId', subCategoryController.delete);

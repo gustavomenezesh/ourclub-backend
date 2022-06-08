@@ -8,8 +8,8 @@ class ListImageService {
     @inject(Types.ImageRepository) private imageRepository!: IImageRepository;
 
     public async execute(): Promise<Image[]> {
-        const [images] = await this.imageRepository.list({ enabled: true });
-        return images;
+      const [images] = await this.imageRepository.list({ enabled: true });
+      return images;
     }
 }
 

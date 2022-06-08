@@ -7,6 +7,7 @@ const Types = {
   SizeRepository: Symbol('SizeRepository'),
   ImageRepository: Symbol('ImageRepository'),
   TagRepository: Symbol('TagRepository'),
+  StorageProvider: Symbol('StorageProvider'),
 };
 
 export default Types;

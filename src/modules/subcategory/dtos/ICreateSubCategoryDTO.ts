@@ -1,7 +1,6 @@
 interface ICreateSubCategoryDTO {
-    url: string;
-    token: string;
-    size: string;
+  categoryId: number,
+  description: string,
 }
 
 export default ICreateSubCategoryDTO;

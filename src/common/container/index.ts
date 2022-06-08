@@ -1,3 +1,5 @@
+import StorageProvider from '@common/providers/StorageProvider/implementations/LocalStorageProvider';
+import IStorageProvider from '@common/providers/StorageProvider/repositories/IStorageProvider';
 import AdressRepository from '@modules/adress/infra/repostories/AdressRepository';
 import IAdressRepository from '@modules/adress/repositories/IAdressRepository';
 import CategoryRepository from '@modules/category/infra/typeorm/repositories/CategoryRepository';
@@ -29,5 +31,6 @@ container.bind<ISubCategoryRepository>(Types.SubCategoryRepository).to(SubCatego
 container.bind<ISizeRepository>(Types.SizeRepository).to(SizeRepository);
 container.bind<IImageRepository>(Types.ImageRepository).to(ImageRepository);
 container.bind<ITagRepository>(Types.TagRepository).to(TagRepository);
+container.bind<IStorageProvider>(Types.StorageProvider).to(StorageProvider);
 
 export default container;

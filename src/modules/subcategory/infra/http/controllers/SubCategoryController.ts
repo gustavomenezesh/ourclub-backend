@@ -12,45 +12,47 @@ import { StatusCodes } from 'http-status-codes';
 import UpdateSubCategoryValidator from '../validators/UpdateSubCategoryValidator';
 
 class SubCategoryController {
-    public async list(req: Request, res: Response): Promise<Response> {
-        const createSubCategory = AppContainer.resolve<ListSubCategoryService>(ListSubCategoryService);
-        const subCategories = await createSubCategory.execute();
+  public async list(req: Request, res: Response): Promise<Response> {
 
-        return res.status(200).json(instanceToPlain(subCategories));
-    }
+    const categoryId = +req.params.category;
+    const createSubCategory = AppContainer.resolve<ListSubCategoryService>(ListSubCategoryService);
+    const subCategories = await createSubCategory.execute(categoryId);
 
-    public async create(req: Request, res: Response): Promise<Response> {
-        const data = await CreateSubCategoryValidator.parseAsync(req.body).catch((err) => {
-            throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
-        });
+    return res.status(200).json(instanceToPlain(subCategories));
+  }
 
-        const createSubCategory = AppContainer.resolve<CreateSubCategoryService>(CreateSubCategoryService);
-        const subCategory = await createSubCategory.execute({ data });
+  public async create(req: Request, res: Response): Promise<Response> {
+    const data = await CreateSubCategoryValidator.parseAsync(req.body).catch((err) => {
+      throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
+    });
 
-        return res.status(StatusCodes.CREATED).json({ id: subCategory.id });
-    }
+    const createSubCategory = AppContainer.resolve<CreateSubCategoryService>(CreateSubCategoryService);
+    const subCategory = await createSubCategory.execute({ data });
 
-    public async update(req: Request, res: Response): Promise<Response> {
-        const data = await UpdateSubCategoryValidator.parseAsync(req.body).catch((err) => {
-            throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
-        });
+    return res.status(StatusCodes.CREATED).json({ id: subCategory.id });
+  }
 
-        const subCategoryId = +req.params.subCategoryId;
+  public async update(req: Request, res: Response): Promise<Response> {
+    const data = await UpdateSubCategoryValidator.parseAsync(req.body).catch((err) => {
+      throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
+    });
 
-        const updateSubCategory = AppContainer.resolve<UpdateSubCategoryService>(UpdateSubCategoryService);
-        await updateSubCategory.execute({ subCategoryId, data });
+    const subCategoryId = +req.params.subCategoryId;
 
-        return res.status(StatusCodes.NO_CONTENT).json({});
-    }
+    const updateSubCategory = AppContainer.resolve<UpdateSubCategoryService>(UpdateSubCategoryService);
+    await updateSubCategory.execute({ subCategoryId, data });
 
-    public async delete(req: Request, res: Response): Promise<Response> {
-        const subCategoryId = +req.params.subCategoryId;
+    return res.status(StatusCodes.NO_CONTENT).json({});
+  }
 
-        const deleteSubCategory = AppContainer.resolve<DeleteSubCategoryService>(DeleteSubCategoryService);
-        await deleteSubCategory.execute({ subCategoryId });
+  public async delete(req: Request, res: Response): Promise<Response> {
+    const subCategoryId = +req.params.subCategoryId;
 
-        return res.status(StatusCodes.NO_CONTENT).json({});
-    }
+    const deleteSubCategory = AppContainer.resolve<DeleteSubCategoryService>(DeleteSubCategoryService);
+    await deleteSubCategory.execute({ subCategoryId });
+
+    return res.status(StatusCodes.NO_CONTENT).json({});
+  }
 }
 
 export default SubCategoryController;

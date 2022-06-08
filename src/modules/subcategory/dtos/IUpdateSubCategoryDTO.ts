@@ -1,8 +1,7 @@
 interface IUpdateSubCategoryDTO {
-    url?: string;
-    token?: string;
-    size?: string;
-    enabled?: boolean;
+  categoryId: number,
+  description: string,
+  enabled?: boolean;
 }
 
 export default IUpdateSubCategoryDTO;
