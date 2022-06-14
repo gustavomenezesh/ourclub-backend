@@ -37,7 +37,7 @@ class ListProductsService {
           })));
         return Promise.all(response).then((results) => results);
       }
-      const subcategProducts = await this.subCategoryRepository.list({ id: Number(data.subCategoryId), enabled: true }, ['products', 'products.images']);
+      const subcategProducts = await this.subCategoryRepository.list({ id: data.subCategoryId, enabled: true }, ['products', 'products.images']);
       console.log(subcategProducts);
       const products = subcategProducts[0][0]
         .products?.filter((product) => product.enabled === true);
