@@ -2,6 +2,7 @@ const Types = {
   AdressRepository: Symbol('AdressRepository'),
   CategoryRepository: Symbol('CategoryRepository'),
   UserRepository: Symbol('UserRepository'),
+  ProductRepository: Symbol('ProductRepository'),
   ProfileRepository: Symbol('ProfileRepository'),
   SubCategoryRepository: Symbol('SubCategoryRepository'),
   SizeRepository: Symbol('SizeRepository'),

@@ -6,6 +6,8 @@ import CategoryRepository from '@modules/category/infra/typeorm/repositories/Cat
 import ICategoryRepository from '@modules/category/repositories/ICategoryRepository';
 import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepository';
 import IImageRepository from '@modules/image/repositories/IImageRepository';
+import ProductRepository from '@modules/product/infra/typeorm/repositories/ProductRepository';
+import IProductRepository from '@modules/product/repositories/IProductRepository';
 import SizeRepository from '@modules/size/infra/typeorm/repositories/SizeRepository';
 import ISizeRepository from '@modules/size/repositories/ISizeRepository';
 import SubCategoryRepository from '@modules/subcategory/infra/typeorm/repositories/SubCategoryRepository';
@@ -24,6 +26,7 @@ import Types from './types';
 const container = new Container();
 
 container.bind<IUserRepository>(Types.UserRepository).to(UserRepository);
+container.bind<IProductRepository>(Types.ProductRepository).to(ProductRepository);
 container.bind<IProfileRepository>(Types.ProfileRepository).to(ProfileRepository);
 container.bind<IAdressRepository>(Types.AdressRepository).to(AdressRepository);
 container.bind<ICategoryRepository>(Types.CategoryRepository).to(CategoryRepository);

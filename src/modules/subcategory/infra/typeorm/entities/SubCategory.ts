@@ -6,10 +6,12 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
 import Category from '@modules/category/infra/typeorm/entities/Category';
+import Product from '@modules/product/infra/typeorm/entities/Product';
 
 @Entity('subcategoria')
 class SubCategory {
@@ -19,7 +21,7 @@ class SubCategory {
     @Column({ type: 'varchar', name: 'descricao', length: 64 })
     description!: string;
 
-    @Column({ type: 'int', name: 'categoriaId', primary: true })
+    @Column({ type: 'smallint', name: 'categoriaId' })
     categoryId!: number;
 
     @Exclude()
@@ -37,6 +39,9 @@ class SubCategory {
     @ManyToOne(() => Category, (category) => category.subcategories)
     @JoinColumn([{ name: 'categoriaId', referencedColumnName: 'id' }])
     category?: Category;
+
+    @OneToMany(() => Product, (product) => product.subCategory)
+    products?: Product[];
 }
 
 export default SubCategory;

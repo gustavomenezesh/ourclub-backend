@@ -1,7 +1,8 @@
 interface ICreateImageDTO {
-    url: string;
-    token: string;
-    size: string;
+  productId: number;
+  url: string;
+  token: string;
+  size: string;
 }
 
 export default ICreateImageDTO;
