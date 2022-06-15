@@ -37,7 +37,27 @@ class ListProductsService {
           })));
         return Promise.all(response).then((results) => results);
       }
-      const subcategProducts = await this.subCategoryRepository.list({ id: data.subCategoryId, enabled: true }, ['products', 'products.images']);
+      if (data.subCategoryId) {
+        const subcategProducts = await this.subCategoryRepository.list({ id: data.subCategoryId, enabled: true }, ['products', 'products.images']);
+        console.log(subcategProducts);
+        const products = subcategProducts[0][0]
+          .products?.filter((product) => product.enabled === true);
+
+        return products?.map((product) => (
+          {
+            id: product.id,
+            title: product.title,
+            value: product.value,
+            description: product.description,
+            gender: product.gender,
+            images: product.images?.map((image) => ({
+              url: image.url,
+            }
+            )),
+          }
+        ));
+      }
+      const subcategProducts = await this.subCategoryRepository.list({ enabled: true }, ['products', 'products.images']);
       console.log(subcategProducts);
       const products = subcategProducts[0][0]
         .products?.filter((product) => product.enabled === true);
