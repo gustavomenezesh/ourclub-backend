@@ -30,9 +30,15 @@ class CreateProductService {
     public async execute({ filenames, data }: IRequest): Promise<Product> {
       const subCategoryFound = await this.subCategoryRepository.find({ id: data.subCategoryId });
       if (!subCategoryFound) throw new AppError('Category not found!', 404);
-
+      const body = {
+        subCategoryId: Number(data.subCategoryId),
+        title: data.title,
+        value: Number(data.value),
+        description: data.description,
+        gender: data.gender,
+      };
       try {
-        const product = await this.productRepository.create(data);
+        const product = await this.productRepository.create(body);
         filenames.forEach(async (filename) => {
           await this.storageProvider.save(filename);
           const { size } = fs.statSync(`${storageConfig.local.uploadFolder}/${filename}`);

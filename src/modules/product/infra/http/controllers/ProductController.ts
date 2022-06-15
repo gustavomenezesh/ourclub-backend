@@ -11,6 +11,7 @@ import CreateProductService from '@modules/product/services/CreateProductService
 import ListProductValidator from '@modules/product/infra/http/validators/ListProductsValidator';
 import ListProductsService from '@modules/product/services/ListProductsService';
 import { instanceToPlain } from 'class-transformer';
+import GetProductByIdService from '@modules/product/services/GetProductByIdService';
 
 class ProductController {
   public async create(req: Request, res: Response): Promise<Response> {
@@ -39,6 +40,15 @@ class ProductController {
     const products = await listProducts.execute({ data });
 
     return res.status(200).json(instanceToPlain(products));
+  }
+
+  public async get(req: Request, res: Response): Promise<Response> {
+    const productId = +req.params.product;
+    console.log(productId)
+    const getProduct = AppContainer.resolve<GetProductByIdService>(GetProductByIdService);
+    const product = await getProduct.execute({ productId });
+
+    return res.status(200).json(product);
   }
 }
 

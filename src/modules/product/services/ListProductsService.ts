@@ -23,6 +23,7 @@ class ListProductsService {
     public async execute({ data }: IRequest): Promise<IResponse[] | undefined> {
       if (data.title) {
         const products = await this.productRepository.listByTitle(data.title);
+        if (products.length === 0) return [];
         const response = products?.map(async (product) => this.imageRepository
           .list({ productId: product.id, enabled: true }, [])
           .then((image) => ({
@@ -38,8 +39,8 @@ class ListProductsService {
         return Promise.all(response).then((results) => results);
       }
       if (data.subCategoryId) {
-        const subcategProducts = await this.subCategoryRepository.list({ id: data.subCategoryId, enabled: true }, ['products', 'products.images']);
-        console.log(subcategProducts);
+        const subcategProducts = await this.subCategoryRepository.list({ id: Number(data.subCategoryId), enabled: true }, ['products', 'products.images']);
+        if (subcategProducts[0].length === 0) return [];
         const products = subcategProducts[0][0]
           .products?.filter((product) => product.enabled === true);
 
@@ -57,11 +58,9 @@ class ListProductsService {
           }
         ));
       }
-      const subcategProducts = await this.subCategoryRepository.list({ enabled: true }, ['products', 'products.images']);
-      console.log(subcategProducts);
-      const products = subcategProducts[0][0]
-        .products?.filter((product) => product.enabled === true);
 
+      const [products] = await this.productRepository.list({ enabled: true }, ['images']);
+      if (products.length === 0) return [];
       return products?.map((product) => (
         {
           id: product.id,
