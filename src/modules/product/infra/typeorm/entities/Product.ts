@@ -50,7 +50,7 @@ class Product {
 
     @ManyToOne(() => SubCategory, (subCategory) => subCategory.products)
     @JoinColumn([{ name: 'subcategoriaId', referencedColumnName: 'id' }])
-    subCategory?: Product;
+    subCategory?: SubCategory;
 
     @OneToMany(() => Image, (image) => image.product)
     images?: Image[];

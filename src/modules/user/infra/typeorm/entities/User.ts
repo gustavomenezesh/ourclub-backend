@@ -11,6 +11,7 @@ import {
 
 import { Exclude } from 'class-transformer';
 import Adress from '@modules/adress/infra/typeorm/entities/Adress';
+import Sale from '@modules/sale/infra/typeorm/entities/Sale';
 import Profile from './Profile';
 
 @Entity('usuario')
@@ -63,6 +64,9 @@ class User {
 
   @OneToMany(() => Adress, (adress) => adress.user)
   adresses?: Adress[];
+
+  @OneToMany(() => Sale, (sale) => sale.user)
+  sales?: Sale[];
 }
 
 export default User;

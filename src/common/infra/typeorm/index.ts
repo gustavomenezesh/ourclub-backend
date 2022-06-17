@@ -9,6 +9,7 @@ import Image from '@modules/image/infra/typeorm/entities/Image';
 import Size from '@modules/size/infra/typeorm/entities/Size';
 import Tag from '@modules/tag/infra/typeorm/entities/Tag';
 import Product from '@modules/product/infra/typeorm/entities/Product';
+import Sale from '@modules/sale/infra/typeorm/entities/Sale';
 
 createConnection({
   type: 'postgres',
@@ -24,6 +25,7 @@ createConnection({
     Adress,
     Category,
     SubCategory,
+    Sale,
     Image,
     Size,
     Tag,

@@ -6,10 +6,12 @@ import {
   PrimaryGeneratedColumn,
   ManyToOne,
   JoinColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
 import User from '@entities/User';
+import Sale from '@modules/sale/infra/typeorm/entities/Sale';
 
 @Entity('endereco')
 class Adress {
@@ -60,6 +62,9 @@ class Adress {
   @ManyToOne(() => User, (user) => user.adresses)
   @JoinColumn([{ name: 'usuarioId', referencedColumnName: 'id' }])
   user!: User;
+
+  @OneToMany(() => Sale, (sale) => sale.user)
+  sales?: Sale[];
 }
 
 export default Adress;
