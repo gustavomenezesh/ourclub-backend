@@ -8,7 +8,9 @@ import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepo
 import IImageRepository from '@modules/image/repositories/IImageRepository';
 import ProductRepository from '@modules/product/infra/typeorm/repositories/ProductRepository';
 import IProductRepository from '@modules/product/repositories/IProductRepository';
+import SaleProductRepository from '@modules/sale/infra/typeorm/repositories/SaleProductRepository';
 import SaleRepository from '@modules/sale/infra/typeorm/repositories/SaleRepository';
+import ISaleProductRepository from '@modules/sale/repositories/ISaleProductRepository';
 import ISaleRepository from '@modules/sale/repositories/ISaleRepository';
 import SizeRepository from '@modules/size/infra/typeorm/repositories/SizeRepository';
 import ISizeRepository from '@modules/size/repositories/ISizeRepository';
@@ -33,6 +35,7 @@ container.bind<IProfileRepository>(Types.ProfileRepository).to(ProfileRepository
 container.bind<IAdressRepository>(Types.AdressRepository).to(AdressRepository);
 container.bind<ICategoryRepository>(Types.CategoryRepository).to(CategoryRepository);
 container.bind<ISaleRepository>(Types.SaleRepository).to(SaleRepository);
+container.bind<ISaleProductRepository>(Types.SaleProductRepository).to(SaleProductRepository);
 container.bind<ISubCategoryRepository>(Types.SubCategoryRepository).to(SubCategoryRepository);
 container.bind<ISizeRepository>(Types.SizeRepository).to(SizeRepository);
 container.bind<IImageRepository>(Types.ImageRepository).to(ImageRepository);

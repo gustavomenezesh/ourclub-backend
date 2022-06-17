@@ -6,6 +6,7 @@ import imageRouter from '@modules/image/infra/http/router/ImageRouter';
 import sizeRouter from '@modules/size/infra/http/routes/SizeRouter';
 import tagRouter from '@modules/tag/infra/http/routes/TagRouter';
 import productRouter from '@modules/product/infra/http/routes/ProductRouter';
+import saleRouter from '@modules/sale/infra/http/routers/SaleRouter';
 
 const routes = Router();
 
@@ -14,6 +15,7 @@ routes.use('/products', productRouter);
 routes.use('/categories', categoryRouter);
 routes.use('/sub-categories', subCategoryRouter);
 routes.use('/images', imageRouter);
+routes.use('/sales', saleRouter);
 routes.use('/sizes', sizeRouter);
 routes.use('/tags', tagRouter);
 

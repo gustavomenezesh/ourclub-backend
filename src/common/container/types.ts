@@ -5,6 +5,7 @@ const Types = {
   ProductRepository: Symbol('ProductRepository'),
   ProfileRepository: Symbol('ProfileRepository'),
   SaleRepository: Symbol('SaleRepository'),
+  SaleProductRepository: Symbol('SaleProductRepository'),
   SubCategoryRepository: Symbol('SubCategoryRepository'),
   SizeRepository: Symbol('SizeRepository'),
   ImageRepository: Symbol('ImageRepository'),

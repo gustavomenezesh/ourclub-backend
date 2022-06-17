@@ -1,12 +1,14 @@
 import {
-    Column,
-    Entity,
-    CreateDateColumn,
-    UpdateDateColumn,
-    PrimaryGeneratedColumn,
+  Column,
+  Entity,
+  CreateDateColumn,
+  UpdateDateColumn,
+  PrimaryGeneratedColumn,
+  OneToMany,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
+import SaleProduct from '@modules/sale/infra/typeorm/entities/SaleProducts';
 
 @Entity('tamanho')
 class Size {
@@ -27,6 +29,9 @@ class Size {
     @Exclude()
     @UpdateDateColumn({ type: 'timestamptz' })
     updatedAt!: Date;
+
+    @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.size)
+    saleProducts?: SaleProduct[];
 }
 
 export default Size;

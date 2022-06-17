@@ -13,6 +13,7 @@ import { Exclude } from 'class-transformer';
 import ColumnNumericTransformer from '@modules/product/utils/ClassNumericTransformer';
 import Image from '@modules/image/infra/typeorm/entities/Image';
 import SubCategory from '@modules/subcategory/infra/typeorm/entities/SubCategory';
+import SaleProduct from '@modules/sale/infra/typeorm/entities/SaleProducts';
 
 @Entity('produto')
 class Product {
@@ -54,6 +55,9 @@ class Product {
 
     @OneToMany(() => Image, (image) => image.product)
     images?: Image[];
+
+    @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.product)
+    saleProducts?: SaleProduct[];
 }
 
 export default Product;

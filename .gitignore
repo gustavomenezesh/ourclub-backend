@@ -9,3 +9,5 @@ yarn.lock
 .DS_store
 .env
 yarn-error.log
+data/
+temp/
