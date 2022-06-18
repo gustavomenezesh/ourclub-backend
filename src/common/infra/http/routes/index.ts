@@ -1,4 +1,6 @@
 import { Router } from 'express';
+
+import authRouter from '@modules/auth/infra/http/routes/AuthRoutes';
 import userRouter from '@modules/user/infra/http/routes/UserRouter';
 import categoryRouter from '@modules/category/infra/http/routes/CategoryRouter';
 import subCategoryRouter from '@modules/subcategory/infra/http/routes/SubCategoryRouter';
@@ -10,6 +12,7 @@ import saleRouter from '@modules/sale/infra/http/routers/SaleRouter';
 
 const routes = Router();
 
+routes.use('/auth', authRouter);
 routes.use('/users', userRouter);
 routes.use('/products', productRouter);
 routes.use('/categories', categoryRouter);

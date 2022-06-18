@@ -3,7 +3,7 @@
     "name": "default",
     "type": "postgres",
     "host": "localhost",
-    "port": 5432,
+    "port": 5430,
     "username": "v4h",
     "password": "v4h",
     "database": "ourclub-backend",
