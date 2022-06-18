@@ -11,6 +11,7 @@ const Types = {
   ImageRepository: Symbol('ImageRepository'),
   TagRepository: Symbol('TagRepository'),
   StorageProvider: Symbol('StorageProvider'),
+  PersonalizationRepository: Symbol('PersonalizationRepository'),
 };
 
 export default Types;

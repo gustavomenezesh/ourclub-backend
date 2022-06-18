@@ -6,6 +6,8 @@ import CategoryRepository from '@modules/category/infra/typeorm/repositories/Cat
 import ICategoryRepository from '@modules/category/repositories/ICategoryRepository';
 import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepository';
 import IImageRepository from '@modules/image/repositories/IImageRepository';
+import PersonalizationRepository from '@modules/personalization/infra/typeorm/repositories/PersonalizationRepository';
+import IPersonalizationRepository from '@modules/personalization/repositories/IPersonalizationRepository';
 import ProductRepository from '@modules/product/infra/typeorm/repositories/ProductRepository';
 import IProductRepository from '@modules/product/repositories/IProductRepository';
 import SaleProductRepository from '@modules/sale/infra/typeorm/repositories/SaleProductRepository';
@@ -41,5 +43,6 @@ container.bind<ISizeRepository>(Types.SizeRepository).to(SizeRepository);
 container.bind<IImageRepository>(Types.ImageRepository).to(ImageRepository);
 container.bind<ITagRepository>(Types.TagRepository).to(TagRepository);
 container.bind<IStorageProvider>(Types.StorageProvider).to(StorageProvider);
+container.bind<IPersonalizationRepository>(Types.PersonalizationRepository).to(PersonalizationRepository);
 
 export default container;

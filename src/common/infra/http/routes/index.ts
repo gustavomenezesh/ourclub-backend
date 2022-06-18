@@ -9,6 +9,7 @@ import sizeRouter from '@modules/size/infra/http/routes/SizeRouter';
 import tagRouter from '@modules/tag/infra/http/routes/TagRouter';
 import productRouter from '@modules/product/infra/http/routes/ProductRouter';
 import saleRouter from '@modules/sale/infra/http/routers/SaleRouter';
+import personalizationRouter from '@modules/personalization/infra/http/router/PersonalizationRouter';
 
 const routes = Router();
 
@@ -21,5 +22,6 @@ routes.use('/images', imageRouter);
 routes.use('/sales', saleRouter);
 routes.use('/sizes', sizeRouter);
 routes.use('/tags', tagRouter);
+routes.use('/personalizations', personalizationRouter);
 
 export default routes;

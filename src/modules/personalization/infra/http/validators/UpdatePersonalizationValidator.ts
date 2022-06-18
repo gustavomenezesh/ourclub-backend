@@ -1,0 +1,10 @@
+import * as Z from 'zod';
+
+const schema = Z.object({
+    name: Z.string().nonempty().max(64),
+    number: Z.string().nonempty().max(6),
+    color: Z.string().nonempty().max(14),
+    value: Z.string().nonempty().max(14),
+});
+
+export default schema;
