@@ -32,7 +32,7 @@ createConnection({
     Image,
     Size,
     Tag,
-    Personalization
+    Personalization,
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,

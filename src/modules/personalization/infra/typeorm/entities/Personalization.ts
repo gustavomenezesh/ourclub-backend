@@ -1,13 +1,12 @@
-import Product from '@modules/product/infra/typeorm/entities/Product';
+import SaleProduct from '@modules/sale/infra/typeorm/entities/SaleProducts';
 import { Exclude } from 'class-transformer';
 import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    JoinColumn,
-    ManyToOne,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn
+  Column,
+  CreateDateColumn,
+  Entity,
+  OneToMany,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('personalizacao')
@@ -21,14 +20,13 @@ class Personalization {
     @Column({ type: 'varchar', name: 'numero', length: 6 })
     number!: string;
 
-    @Column({ type: 'varchar', name: 'cor', length: 14 })
-    color!: string;
+    @Column({
+      type: 'varchar', name: 'cor', length: 14, nullable: true,
+    })
+    color!: string | null;
 
     @Column({ type: 'float', name: 'valor' })
     value!: string;
-
-    @Column({ type: 'smallint', name: 'produtoId' })
-    productId!: number;
 
     @Exclude()
     @Column({ type: 'boolean', name: 'ativo', default: true })
@@ -42,9 +40,8 @@ class Personalization {
     @UpdateDateColumn({ type: 'timestamptz' })
     updatedAt!: Date;
 
-    @ManyToOne(() => Product, (product) => product.personalizations)
-    @JoinColumn([{ name: 'produtoId', referencedColumnName: 'id' }])
-    product?: Product;
+    @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.personalization)
+    saleProducts?: SaleProduct[];
 }
 
 export default Personalization;

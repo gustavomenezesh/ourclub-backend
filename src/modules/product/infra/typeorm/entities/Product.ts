@@ -14,7 +14,6 @@ import ColumnNumericTransformer from '@modules/product/utils/ClassNumericTransfo
 import Image from '@modules/image/infra/typeorm/entities/Image';
 import SubCategory from '@modules/subcategory/infra/typeorm/entities/SubCategory';
 import SaleProduct from '@modules/sale/infra/typeorm/entities/SaleProducts';
-import Personalization from '@modules/personalization/infra/typeorm/entities/Personalization';
 
 @Entity('produto')
 class Product {
@@ -59,9 +58,6 @@ class Product {
 
   @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.product)
   saleProducts?: SaleProduct[];
-
-  @OneToMany(() => Personalization, (personalization) => personalization.product)
-  personalizations?: Personalization[];
 }
 
 export default Product;

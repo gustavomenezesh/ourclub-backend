@@ -43,6 +43,7 @@ container.bind<ISizeRepository>(Types.SizeRepository).to(SizeRepository);
 container.bind<IImageRepository>(Types.ImageRepository).to(ImageRepository);
 container.bind<ITagRepository>(Types.TagRepository).to(TagRepository);
 container.bind<IStorageProvider>(Types.StorageProvider).to(StorageProvider);
-container.bind<IPersonalizationRepository>(Types.PersonalizationRepository).to(PersonalizationRepository);
+container.bind<IPersonalizationRepository>(Types.PersonalizationRepository)
+  .to(PersonalizationRepository);
 
 export default container;

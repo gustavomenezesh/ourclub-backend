@@ -11,6 +11,7 @@ import { Exclude } from 'class-transformer';
 import Size from '@modules/size/infra/typeorm/entities/Size';
 import Product from '@modules/product/infra/typeorm/entities/Product';
 import Sale from '@modules/sale/infra/typeorm/entities/Sale';
+import Personalization from '@modules/personalization/infra/typeorm/entities/Personalization';
 
 @Entity('vendaProduto')
 class SaleProduct {
@@ -25,6 +26,9 @@ class SaleProduct {
 
     @Column({ type: 'smallint', name: 'tamanhoId' })
     sizeId!: number;
+
+    @Column({ type: 'smallint', name: 'personalizacaoId', nullable: true })
+    personalizationId!: number | null;
 
     @Exclude()
     @CreateDateColumn({ type: 'timestamptz' })
@@ -41,6 +45,10 @@ class SaleProduct {
     @ManyToOne(() => Size, (size) => size.saleProducts)
     @JoinColumn([{ name: 'tamanhoId', referencedColumnName: 'id' }])
     size?: Size;
+
+    @ManyToOne(() => Personalization, (personalization) => personalization.saleProducts)
+    @JoinColumn([{ name: 'personalizacaoId', referencedColumnName: 'id' }])
+    personalization?: Personalization;
 }
 
 export default SaleProduct;

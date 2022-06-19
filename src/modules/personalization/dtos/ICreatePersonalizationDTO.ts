@@ -1,9 +1,8 @@
 interface ICreatePersonalizationDTO {
-    productId: number;
-    name: string;
-    number: string;
-    color: string;
-    value: string;
+    name?: string;
+    number?: string;
+    color?: string;
+    value?: number;
 }
 
 export default ICreatePersonalizationDTO;
