@@ -4,6 +4,8 @@ import AdressRepository from '@modules/adress/infra/repostories/AdressRepository
 import IAdressRepository from '@modules/adress/repositories/IAdressRepository';
 import CategoryRepository from '@modules/category/infra/typeorm/repositories/CategoryRepository';
 import ICategoryRepository from '@modules/category/repositories/ICategoryRepository';
+import DeliveryRepository from '@modules/delivery/infra/typeorm/repositories/DeliveryRepository';
+import IDeliveryRepository from '@modules/delivery/repositories/IDeliveryRepository';
 import ImageRepository from '@modules/image/infra/typeorm/repositories/ImageRepository';
 import IImageRepository from '@modules/image/repositories/IImageRepository';
 import PersonalizationRepository from '@modules/personalization/infra/typeorm/repositories/PersonalizationRepository';
@@ -45,5 +47,6 @@ container.bind<ITagRepository>(Types.TagRepository).to(TagRepository);
 container.bind<IStorageProvider>(Types.StorageProvider).to(StorageProvider);
 container.bind<IPersonalizationRepository>(Types.PersonalizationRepository)
   .to(PersonalizationRepository);
+container.bind<IDeliveryRepository>(Types.DeliveryRepository).to(DeliveryRepository);
 
 export default container;
