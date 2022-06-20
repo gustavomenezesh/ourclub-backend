@@ -10,6 +10,7 @@ interface IDeliveryRepository {
     skip?: number):
   Promise<[Delivery[], number]>;
   update(sale: Delivery, data: IUpdateDeliveryDTO): Promise<Delivery>;
+  find(where: object | object[], relations?: string[]): Promise<Delivery | undefined>;
 }
 
 export default IDeliveryRepository;

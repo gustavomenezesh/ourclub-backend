@@ -6,5 +6,6 @@ const saleController = new SaleController();
 
 saleRouter.post('/', saleController.create);
 saleRouter.get('/', saleController.list);
+saleRouter.patch('/:delivery', saleController.update);
 
 export default saleRouter;

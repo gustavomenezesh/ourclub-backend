@@ -14,6 +14,13 @@ class DeliveryRepository implements IDeliveryRepository {
       return this.ormRepository.save(delivery);
     }
 
+    public async find(
+      where: object | object[],
+      relations?: string[],
+    ): Promise<Delivery | undefined> {
+      return this.ormRepository.findOne({ where, relations });
+    }
+
     public async list(
       where?: object | object[],
       relations?: string[],
