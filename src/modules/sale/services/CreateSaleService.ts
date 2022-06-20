@@ -66,12 +66,14 @@ class CreateProductService {
             productId: product.product,
             sizeId: product.size,
             personalizationId: personalization.id,
+            quantity: product.quantity,
           });
         } else {
           await this.saleProductRepository.create({
             saleId: sale.id,
             productId: product.product,
             sizeId: product.size,
+            quantity: product.quantity,
           });
         }
       }));

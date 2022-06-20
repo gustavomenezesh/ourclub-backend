@@ -3,6 +3,7 @@ interface ICreateSaleProductDTO {
   productId: number;
   sizeId: number;
   personalizationId?: number;
+  quantity: number;
 }
 
 export default ICreateSaleProductDTO;

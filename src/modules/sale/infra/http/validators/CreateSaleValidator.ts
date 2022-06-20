@@ -14,6 +14,7 @@ const schema = Z.object({
       number: Z.string().max(2).optional(),
       value: Z.number().nonnegative().optional(),
     }).optional(),
+    quantity: Z.number().nonnegative(),
   })),
 });
 

@@ -8,6 +8,9 @@ import ParseZodValidationError from '@common/errors/ZodError';
 import CreateSaleValidator from '@modules/sale/infra/http/validators/CreateSaleValidator';
 import CreateSaleService from '@modules/sale/services/CreateSaleService';
 
+import ListSaleService from '@modules/sale/services/ListSaleService';
+import { instanceToPlain } from 'class-transformer';
+
 class SaleController {
   public async create(req:Request, res:Response): Promise<Response> {
     const data = await CreateSaleValidator.parseAsync(req.body).catch((err) => {
@@ -18,6 +21,13 @@ class SaleController {
     const sale = await createSale.execute({ data });
 
     return res.status(StatusCodes.CREATED).json({ id: sale.id });
+  }
+
+  public async list(req:Request, res:Response): Promise<Response> {
+    const listSale = AppContainer.resolve<ListSaleService>(ListSaleService);
+    const sale = await listSale.execute(req.query.userId);
+
+    return res.status(200).json(instanceToPlain(sale));
   }
 }
 

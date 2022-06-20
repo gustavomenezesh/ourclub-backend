@@ -30,6 +30,9 @@ class SaleProduct {
     @Column({ type: 'smallint', name: 'personalizacaoId', nullable: true })
     personalizationId!: number | null;
 
+    @Column({ type: 'smallint', name: 'quantity', nullable: true })
+    quantity!: number | null;
+
     @Exclude()
     @CreateDateColumn({ type: 'timestamptz' })
     createdAt!: Date;

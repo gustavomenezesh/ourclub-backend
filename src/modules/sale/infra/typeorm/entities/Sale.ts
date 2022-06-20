@@ -13,8 +13,8 @@ import { Exclude } from 'class-transformer';
 import ColumnNumericTransformer from '@modules/product/utils/ClassNumericTransformer';
 import User from '@modules/user/infra/typeorm/entities/User';
 import Adress from '@modules/adress/infra/typeorm/entities/Adress';
-import SaleProduct from './SaleProducts';
 import Delivery from '@modules/delivery/infra/typeorm/entities/Delivery';
+import SaleProduct from './SaleProducts';
 
 @Entity('venda')
 class Sale {
