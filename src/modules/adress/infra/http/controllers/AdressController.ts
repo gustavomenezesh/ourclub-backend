@@ -5,6 +5,7 @@ import AppContainer from '@common/container';
 
 import CreateAdressService from '@modules/adress/services/CreateAdressService';
 import CreateAdressValidator from '@modules/adress/infra/http/validators/CreateAdressValidator';
+import { instanceToPlain } from 'class-transformer';
 
 class AdressController {
   public async create(req: Request, res: Response): Promise<Response> {
@@ -15,7 +16,7 @@ class AdressController {
     const createAdressService = AppContainer.resolve<CreateAdressService>(CreateAdressService);
     const response = await createAdressService.execute({ data });
 
-    return res.status(201).json(response);
+    return res.status(201).json(instanceToPlain(response));
   }
 }
 
