@@ -44,7 +44,7 @@ class ProductController {
 
   public async get(req: Request, res: Response): Promise<Response> {
     const productId = +req.params.product;
-    console.log(productId)
+
     const getProduct = AppContainer.resolve<GetProductByIdService>(GetProductByIdService);
     const product = await getProduct.execute({ productId });
 

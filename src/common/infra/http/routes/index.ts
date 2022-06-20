@@ -10,9 +10,11 @@ import tagRouter from '@modules/tag/infra/http/routes/TagRouter';
 import productRouter from '@modules/product/infra/http/routes/ProductRouter';
 import saleRouter from '@modules/sale/infra/http/routers/SaleRouter';
 import personalizationRouter from '@modules/personalization/infra/http/router/PersonalizationRouter';
+import adressRouter from '@modules/adress/infra/http/routes/AdressRouter';
 
 const routes = Router();
 
+routes.use('/adresses', adressRouter);
 routes.use('/auth', authRouter);
 routes.use('/users', userRouter);
 routes.use('/products', productRouter);

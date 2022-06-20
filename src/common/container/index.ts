@@ -1,6 +1,6 @@
 import StorageProvider from '@common/providers/StorageProvider/implementations/LocalStorageProvider';
 import IStorageProvider from '@common/providers/StorageProvider/repositories/IStorageProvider';
-import AdressRepository from '@modules/adress/infra/repostories/AdressRepository';
+import AdressRepository from '@modules/adress/infra/typeorm/repostories/AdressRepository';
 import IAdressRepository from '@modules/adress/repositories/IAdressRepository';
 import CategoryRepository from '@modules/category/infra/typeorm/repositories/CategoryRepository';
 import ICategoryRepository from '@modules/category/repositories/ICategoryRepository';
