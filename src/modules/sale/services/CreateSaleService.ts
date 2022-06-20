@@ -16,7 +16,6 @@ import ISaleRepository from '../repositories/ISaleRepository';
 import Sale from '../infra/typeorm/entities/Sale';
 
 interface IRequest {
-  userId?: number;
   data: Z.infer<typeof Schema>,
 }
 
@@ -35,16 +34,12 @@ class CreateProductService {
     @inject(Types.PersonalizationRepository) private personalizationRepository!:
       IPersonalizationRepository;
 
-    public async execute({ userId, data }: IRequest): Promise<Sale> {
-      if (!userId) {
-        throw new AppError('Unauthorized!', StatusCodes.UNAUTHORIZED);
-      }
-
+    public async execute({ data }: IRequest): Promise<Sale> {
       if (!await this.adressRepository.find({ id: data.adressId })) {
         throw new AppError('Adress not found!', StatusCodes.NOT_FOUND);
       }
       const saleBody = {
-        userId,
+        userId: data.userId,
         adressId: data.adressId,
         description: data.description,
         code: uuidv4(),

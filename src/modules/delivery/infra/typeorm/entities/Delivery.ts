@@ -1,13 +1,13 @@
 import Sale from '@modules/sale/infra/typeorm/entities/Sale';
 import { Exclude } from 'class-transformer';
 import {
-    Column,
-    CreateDateColumn,
-    Entity,
-    JoinColumn,
-    ManyToOne,
-    PrimaryGeneratedColumn,
-    UpdateDateColumn,
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  ManyToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
 } from 'typeorm';
 
 @Entity('entrega')
@@ -24,7 +24,9 @@ class Delivery {
     @Column({ type: 'varchar', name: 'prazo', length: 10 })
     deadline!: string;
 
-    @Column({ type: 'varchar', name: 'rastreio', length: 40 })
+    @Column({
+      type: 'varchar', name: 'rastreio', length: 40, nullable: true,
+    })
     tracking!: string;
 
     @Exclude()

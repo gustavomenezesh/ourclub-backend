@@ -14,10 +14,8 @@ class SaleController {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
 
-    const userId = req.auth.user;
-
     const createSale = AppContainer.resolve<CreateSaleService>(CreateSaleService);
-    const sale = await createSale.execute({ userId, data });
+    const sale = await createSale.execute({ data });
 
     return res.status(StatusCodes.CREATED).json({ id: sale.id });
   }

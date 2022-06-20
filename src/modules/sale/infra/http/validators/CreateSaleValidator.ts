@@ -1,6 +1,7 @@
 import * as Z from 'zod';
 
 const schema = Z.object({
+  userId: Z.number().nonnegative(),
   adressId: Z.number().nonnegative(),
   description: Z.string().max(1024),
   total: Z.number().nonnegative(),
