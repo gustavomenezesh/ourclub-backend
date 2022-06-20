@@ -14,57 +14,61 @@ import ColumnNumericTransformer from '@modules/product/utils/ClassNumericTransfo
 import User from '@modules/user/infra/typeorm/entities/User';
 import Adress from '@modules/adress/infra/typeorm/entities/Adress';
 import SaleProduct from './SaleProducts';
+import Delivery from '@modules/delivery/infra/typeorm/entities/Delivery';
 
 @Entity('venda')
 class Sale {
-    @PrimaryGeneratedColumn({ type: 'smallint', name: 'id' })
-    id!: number;
+  @PrimaryGeneratedColumn({ type: 'smallint', name: 'id' })
+  id!: number;
 
-    @Column({ type: 'smallint', name: 'usuarioId' })
-    userId!: number;
+  @Column({ type: 'smallint', name: 'usuarioId' })
+  userId!: number;
 
-    @Column({ type: 'smallint', name: 'enderecoId' })
-    adressId!: number;
+  @Column({ type: 'smallint', name: 'enderecoId' })
+  adressId!: number;
 
-    @Column({ type: 'varchar', name: 'descricao', length: 1024 })
-    description!: string;
+  @Column({ type: 'varchar', name: 'descricao', length: 1024 })
+  description!: string;
 
-    @Column({ type: 'varchar', name: 'codigo', length: 64 })
-    code!: string;
+  @Column({ type: 'varchar', name: 'codigo', length: 64 })
+  code!: string;
 
-    @Column({
-      type: 'numeric', precision: 6, scale: 2, transformer: new ColumnNumericTransformer(), name: 'total',
-    })
-    total!: number;
+  @Column({
+    type: 'numeric', precision: 6, scale: 2, transformer: new ColumnNumericTransformer(), name: 'total',
+  })
+  total!: number;
 
-    @Column({ type: 'varchar', name: 'formaPagamento', length: 32 })
-    paymentType!: string;
+  @Column({ type: 'varchar', name: 'formaPagamento', length: 32 })
+  paymentType!: string;
 
-    @Column({ type: 'boolean', name: 'pagamentoConfirmado', default: false })
-    confirmed!: boolean;
+  @Column({ type: 'boolean', name: 'pagamentoConfirmado', default: false })
+  confirmed!: boolean;
 
-    @Exclude()
-    @Column({ type: 'boolean', name: 'ativo', default: true })
-    enabled!: boolean;
+  @Exclude()
+  @Column({ type: 'boolean', name: 'ativo', default: true })
+  enabled!: boolean;
 
-    @Exclude()
-    @CreateDateColumn({ type: 'timestamptz' })
-    createdAt!: Date;
+  @Exclude()
+  @CreateDateColumn({ type: 'timestamptz' })
+  createdAt!: Date;
 
-    @Exclude()
-    @UpdateDateColumn({ type: 'timestamptz' })
-    updatedAt!: Date;
+  @Exclude()
+  @UpdateDateColumn({ type: 'timestamptz' })
+  updatedAt!: Date;
 
-    @ManyToOne(() => User, (user) => user.sales)
-    @JoinColumn([{ name: 'usuarioId', referencedColumnName: 'id' }])
-    user?: User;
+  @ManyToOne(() => User, (user) => user.sales)
+  @JoinColumn([{ name: 'usuarioId', referencedColumnName: 'id' }])
+  user?: User;
 
-    @ManyToOne(() => Adress, (adress) => adress.sales)
-    @JoinColumn([{ name: 'enderecoId', referencedColumnName: 'id' }])
-    adress?: Adress;
+  @ManyToOne(() => Adress, (adress) => adress.sales)
+  @JoinColumn([{ name: 'enderecoId', referencedColumnName: 'id' }])
+  adress?: Adress;
 
-    @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.sale)
-    saleProducts?: SaleProduct[];
+  @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.sale)
+  saleProducts?: SaleProduct[];
+
+  @OneToMany(() => Delivery, (delivery) => delivery.sale)
+  deliveries?: Delivery[];
 }
 
 export default Sale;

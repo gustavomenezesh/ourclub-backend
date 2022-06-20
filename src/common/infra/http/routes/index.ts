@@ -11,6 +11,7 @@ import productRouter from '@modules/product/infra/http/routes/ProductRouter';
 import saleRouter from '@modules/sale/infra/http/routers/SaleRouter';
 import personalizationRouter from '@modules/personalization/infra/http/router/PersonalizationRouter';
 import adressRouter from '@modules/adress/infra/http/routes/AdressRouter';
+import deliveryRouter from '@modules/delivery/infra/http/routes/DeliveryRouter';
 
 const routes = Router();
 
@@ -25,5 +26,6 @@ routes.use('/sales', saleRouter);
 routes.use('/sizes', sizeRouter);
 routes.use('/tags', tagRouter);
 routes.use('/personalizations', personalizationRouter);
+routes.use('/deliveries', deliveryRouter);
 
 export default routes;
