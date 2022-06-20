@@ -11,6 +11,7 @@ import IAdressRepository from '@modules/adress/repositories/IAdressRepository';
 
 import ISizeRepository from '@modules/size/repositories/ISizeRepository';
 import IPersonalizationRepository from '@modules/personalization/repositories/IPersonalizationRepository';
+import IDeliveryRepository from '@modules/delivery/repositories/IDeliveryRepository';
 import ISaleProductRepository from '../repositories/ISaleProductRepository';
 import ISaleRepository from '../repositories/ISaleRepository';
 import Sale from '../infra/typeorm/entities/Sale';
@@ -28,6 +29,8 @@ class CreateProductService {
     @inject(Types.ProductRepository) private productRepository!: IProductRepository;
 
     @inject(Types.AdressRepository) private adressRepository!: IAdressRepository;
+
+    @inject(Types.DeliveryRepository) private deliveryRepository!: IDeliveryRepository;
 
     @inject(Types.SizeRepository) private sizeRepository!: ISizeRepository;
 
@@ -81,6 +84,7 @@ class CreateProductService {
         await this.saleRepository.delete(sale.id);
         throw new AppError(errors[0], 404);
       }
+      await this.deliveryRepository.create({ saleId: sale.id, value: '0', deadline: '15-25 dias' });
       return sale;
     }
 }

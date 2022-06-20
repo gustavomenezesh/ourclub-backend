@@ -5,7 +5,7 @@ import {
   CreateDateColumn,
   Entity,
   JoinColumn,
-  ManyToOne,
+  OneToOne,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
 } from 'typeorm';
@@ -41,7 +41,7 @@ class Delivery {
     @UpdateDateColumn({ type: 'timestamptz' })
     updatedAt!: Date;
 
-    @ManyToOne(() => Sale, (sale) => sale.deliveries)
+    @OneToOne(() => Sale, (sale) => sale.delivery)
     @JoinColumn([{ name: 'vendaId', referencedColumnName: 'id' }])
     sale?: Sale;
 }

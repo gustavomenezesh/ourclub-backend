@@ -7,6 +7,7 @@ import {
   ManyToOne,
   JoinColumn,
   OneToMany,
+  OneToOne,
 } from 'typeorm';
 
 import { Exclude } from 'class-transformer';
@@ -67,8 +68,8 @@ class Sale {
   @OneToMany(() => SaleProduct, (saleProduct) => saleProduct.sale)
   saleProducts?: SaleProduct[];
 
-  @OneToMany(() => Delivery, (delivery) => delivery.sale)
-  deliveries?: Delivery[];
+  @OneToOne(() => Delivery, (delivery) => delivery.sale)
+  delivery?: Delivery;
 }
 
 export default Sale;
