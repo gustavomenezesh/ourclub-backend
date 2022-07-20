@@ -13,6 +13,7 @@ import Sale from '@modules/sale/infra/typeorm/entities/Sale';
 import SaleProduct from '@modules/sale/infra/typeorm/entities/SaleProducts';
 import Personalization from '@modules/personalization/infra/typeorm/entities/Personalization';
 import Delivery from '@modules/delivery/infra/typeorm/entities/Delivery';
+import Promotion from '@modules/promotion/infra/typeorm/entities/Promotion';
 
 createConnection({
   type: 'postgres',
@@ -34,7 +35,8 @@ createConnection({
     Size,
     Tag,
     Personalization,
-    Delivery
+    Delivery,
+    Promotion
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,

@@ -13,6 +13,7 @@ const Types = {
   StorageProvider: Symbol('StorageProvider'),
   PersonalizationRepository: Symbol('PersonalizationRepository'),
   DeliveryRepository: Symbol('DeliveryRepository'),
+  PromotionRepository: Symbol('PromotionRepository'),
 };
 
 export default Types;
