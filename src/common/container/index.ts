@@ -12,6 +12,8 @@ import PersonalizationRepository from '@modules/personalization/infra/typeorm/re
 import IPersonalizationRepository from '@modules/personalization/repositories/IPersonalizationRepository';
 import ProductRepository from '@modules/product/infra/typeorm/repositories/ProductRepository';
 import IProductRepository from '@modules/product/repositories/IProductRepository';
+import PromotionRepository from '@modules/promotion/infra/typeorm/repositories/PromotionRepository';
+import IPromotionRepository from '@modules/promotion/repositories/IPromotionRepository';
 import SaleProductRepository from '@modules/sale/infra/typeorm/repositories/SaleProductRepository';
 import SaleRepository from '@modules/sale/infra/typeorm/repositories/SaleRepository';
 import ISaleProductRepository from '@modules/sale/repositories/ISaleProductRepository';
@@ -48,5 +50,6 @@ container.bind<IStorageProvider>(Types.StorageProvider).to(StorageProvider);
 container.bind<IPersonalizationRepository>(Types.PersonalizationRepository)
   .to(PersonalizationRepository);
 container.bind<IDeliveryRepository>(Types.DeliveryRepository).to(DeliveryRepository);
+container.bind<IPromotionRepository>(Types.PromotionRepository).to(PromotionRepository);
 
 export default container;
