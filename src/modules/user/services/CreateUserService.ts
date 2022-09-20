@@ -23,7 +23,7 @@ class CreateUserService {
   @inject(Types.ProfileRepository) private profileRepository!: IProfileRepository;
 
   public async execute({ data }: IRequest): Promise<User> {
-    const profile = await this.profileRepository.find({ id: data.role === 'ADM' ? 1 : 2 });
+    const profile = await this.profileRepository.find({ description: data.role });
 
     const user: ICreateUserDTO = {
       profileId: profile?.id,
