@@ -15,10 +15,11 @@ import GetProductByIdService from '@modules/product/services/GetProductByIdServi
 
 class ProductController {
   public async create(req: Request, res: Response): Promise<Response> {
+    console.log(req)
     const data = await CreateProductValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
-
+    
     if (!req.files?.length) {
       throw new AppError('Images is missing in product', StatusCodes.BAD_REQUEST);
     }
