@@ -10,7 +10,7 @@
     "db:migration": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:generate -n",
     "db:migrate": "ts-node -r tsconfig-paths/register ./node_modules/typeorm/cli.js migration:run",
     "run:dev": "ts-node-dev -r tsconfig-paths/register --respawn --transpile-only --ignore-watch node_modules --no-notify ./src/common/infra/http/server.ts",
-    "run:prod": "node -r tsconfig-paths/register dist/common/infra/http/server.js"
+    "start": "node -r tsconfig-paths/register dist/common/infra/http/server.js"
   },
   "devDependencies": {
     "@types/cors": "^2.8.12",
