@@ -1,0 +1,1 @@
+web: sh -c 'npm install tsconfig-paths && mkdir temp && ls && npm start'
