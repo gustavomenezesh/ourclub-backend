@@ -1,1 +1,1 @@
-web: sh -c 'npm install tsconfig-paths && mkdir temp && ls && npm start'
+web: sh -c 'yarn add tsconfig-paths && mkdir temp && ls && yarn start'
