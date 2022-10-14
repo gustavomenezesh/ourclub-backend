@@ -1,0 +1,1 @@
+web: sh -c 'yarn add tsconfig-paths && mkdir temp'
