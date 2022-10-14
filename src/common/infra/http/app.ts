@@ -58,7 +58,7 @@ class App {
   }
 
   public start(): void {
-    this.server.listen((this.port), () => {
+    this.server.listen((process.env.PORT || 5000), () => {
       console.log(`${this.title}`);
       console.log(`${this.info}`);
     });
