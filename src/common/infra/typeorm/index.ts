@@ -45,6 +45,7 @@ createConnection({
     ssl: DatabaseConfig.ssl ? {
       rejectUnauthorized: false,
     } : undefined,
+    trustServerCertificate: true,
   },
 }).then(() => {
   console.log('Database connected sucessfully');
