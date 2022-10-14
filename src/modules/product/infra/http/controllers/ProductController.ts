@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import AppContainer from '@common/container';
 import AppError from '@common/errors/AppError';
 import ParseZodValidationError from '@common/errors/ZodError';
@@ -15,16 +16,16 @@ import GetProductByIdService from '@modules/product/services/GetProductByIdServi
 
 class ProductController {
   public async create(req: Request, res: Response): Promise<Response> {
-    console.log(req)
     const data = await CreateProductValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
-    
+
     if (!req.files?.length) {
       throw new AppError('Images is missing in product', StatusCodes.BAD_REQUEST);
     }
-    
-    const filenames = req.files.map((file) => file.filename);
+
+    const myfiles = JSON.parse(JSON.stringify(req.files));
+    const filenames = myfiles.map((file: any) => file.filename);
 
     const createProduct = AppContainer.resolve<CreateProductService>(CreateProductService);
     const product = await createProduct.execute({ filenames, data });

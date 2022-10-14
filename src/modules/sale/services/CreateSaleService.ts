@@ -60,7 +60,7 @@ class CreateProductService {
           errors.push('Could not insert the product in the Sale');
         } else if (product.personalization) {
           const personalization = await this.personalizationRepository.create({
-            name: product.personalization.name,
+            name: product.personalization ? product.personalization.name : '',
             number: product.personalization.number,
             value: product.personalization.value,
           });

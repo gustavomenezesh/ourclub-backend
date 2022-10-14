@@ -12,7 +12,7 @@ const schema = Z.object({
     personalization: Z.object({
       name: Z.string().max(32).optional(),
       number: Z.string().max(2).optional(),
-      value: Z.number().nonnegative().optional(),
+      value: Z.number().nonnegative(),
     }).optional(),
     quantity: Z.number().nonnegative(),
   })),

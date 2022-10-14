@@ -1,6 +1,6 @@
 import Types from '@common/container/types';
 
-import Schema from '@modules/product/infra/http/validators/CreateProductValidator';
+import Schema from '@modules/product/infra/http/validators/ListProductsValidator';
 import ISubCategoryRepository from '@modules/subcategory/repositories/ISubCategoryRepository';
 import { inject, injectable } from 'inversify';
 import * as Z from 'zod';

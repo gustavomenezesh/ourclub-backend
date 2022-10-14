@@ -1,4 +1,5 @@
 interface ICreateAdressDTO {
+  id?: number;
   userId: number;
   state: string;
   cep: string,
@@ -6,8 +7,8 @@ interface ICreateAdressDTO {
   street: string,
   number: string,
   district: string;
-  complement?: string | null,
-  main?: boolean,
+  complement?: string;
+  main?: boolean;
 }
 
 export default ICreateAdressDTO;

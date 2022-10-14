@@ -29,7 +29,7 @@ class CategoryController {
 
   public async list(req:Request, res:Response): Promise<Response> {
     const createCategory = AppContainer.resolve<ListCategoryService>(ListCategoryService);
-    const categories = await createCategory.execute({});
+    const categories = await createCategory.execute();
 
     return res.status(200).json(instanceToPlain(categories));
   }

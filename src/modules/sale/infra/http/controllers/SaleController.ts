@@ -1,3 +1,4 @@
+/* eslint-disable class-methods-use-this */
 import { Request, Response } from 'express';
 import { StatusCodes } from 'http-status-codes';
 
@@ -27,8 +28,9 @@ class SaleController {
   }
 
   public async list(req:Request, res:Response): Promise<Response> {
+    const { userId } = req.query;
     const listSale = AppContainer.resolve<ListSaleService>(ListSaleService);
-    const sale = await listSale.execute(req.query.userId);
+    const sale = await listSale.execute(userId);
 
     return res.status(200).json(instanceToPlain(sale));
   }

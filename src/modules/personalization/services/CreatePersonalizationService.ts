@@ -11,11 +11,12 @@ interface IRequest {
 
 @injectable()
 class CreatePersonalizationService {
-    @inject(Types.PersonalizationRepository) private personalizationRepository!: IPersonalizationRepository;
+    @inject(Types.PersonalizationRepository)
+    private personalizationRepository!: IPersonalizationRepository;
 
     public async execute({ data }: IRequest): Promise<Personalization> {
-        const personalization = await this.personalizationRepository.create(data);
-        return personalization;
+      const personalization = await this.personalizationRepository.create(data);
+      return personalization;
     }
 }
 

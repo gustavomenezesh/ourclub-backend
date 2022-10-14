@@ -10,7 +10,6 @@ import IAdressRepository from '../repositories/IAdressRepository';
 import Adress from '../infra/typeorm/entities/Adress';
 
 interface IRequest {
-  userId: number;
   data: Z.infer<typeof Schema>;
 }
 

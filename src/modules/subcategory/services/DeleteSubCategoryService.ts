@@ -12,12 +12,11 @@ class DeleteSubCategoryService {
     @inject(Types.SubCategoryRepository) private subCategoryRepository!: ISubCategoryRepository;
 
     public async execute({ subCategoryId }: IRequest): Promise<void> {
-        const subCategoryFound = await this.subCategoryRepository.find({ id: subCategoryId });
-        if (!subCategoryFound) throw new AppError('Subcategory not found', 404);
+      const subCategoryFound = await this.subCategoryRepository.find({ id: subCategoryId });
+      if (!subCategoryFound) throw new AppError('Subcategory not found', 404);
 
-        await this.subCategoryRepository.update(subCategoryFound, { enabled: false });
+      await this.subCategoryRepository.update(subCategoryFound, { enabled: false });
     }
 }
 
 export default DeleteSubCategoryService;
-

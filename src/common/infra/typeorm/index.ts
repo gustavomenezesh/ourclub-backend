@@ -36,7 +36,7 @@ createConnection({
     Tag,
     Personalization,
     Delivery,
-    Promotion
+    Promotion,
   ],
   synchronize: false,
   logging: DatabaseConfig.logging,

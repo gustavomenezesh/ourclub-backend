@@ -14,10 +14,14 @@ class Personalization {
     @PrimaryGeneratedColumn({ type: 'smallint', name: 'id' })
     id!: number;
 
-    @Column({ type: 'varchar', name: 'nome', length: 64 })
+    @Column({
+      type: 'varchar', name: 'nome', length: 64, nullable: true,
+    })
     name!: string;
 
-    @Column({ type: 'varchar', name: 'numero', length: 6 })
+    @Column({
+      type: 'varchar', name: 'numero', length: 6, nullable: true,
+    })
     number!: string;
 
     @Column({
@@ -26,7 +30,7 @@ class Personalization {
     color!: string | null;
 
     @Column({ type: 'float', name: 'valor' })
-    value!: string;
+    value!: number;
 
     @Exclude()
     @Column({ type: 'boolean', name: 'ativo', default: true })
