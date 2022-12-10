@@ -3,7 +3,7 @@ interface IUpdatePersonalizationDTO {
     name?: string;
     number?: string;
     color?: string;
-    value?: string;
+    value?: number;
     enabled?: boolean;
 }
 
