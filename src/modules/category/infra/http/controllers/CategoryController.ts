@@ -16,7 +16,7 @@ import DeleteCategoryService from '@modules/category/services/DeleteCategoryServ
 import ListCategoryService from '@modules/category/services/ListCategoriesService';
 
 class CategoryController {
-  public async create(req:Request, res:Response): Promise<Response> {
+  public async create(req: Request, res: Response): Promise<Response> {
     const data = await CreateCategoryValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
@@ -27,14 +27,14 @@ class CategoryController {
     return res.status(StatusCodes.CREATED).json({ id: category.id });
   }
 
-  public async list(req:Request, res:Response): Promise<Response> {
+  public async list(req: Request, res: Response): Promise<Response> {
     const createCategory = AppContainer.resolve<ListCategoryService>(ListCategoryService);
-    const categories = await createCategory.execute({});
+    const categories = await createCategory.execute();
 
     return res.status(200).json(instanceToPlain(categories));
   }
 
-  public async update(req:Request, res:Response): Promise<Response> {
+  public async update(req: Request, res: Response): Promise<Response> {
     const data = await UpdateCategoryValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
@@ -47,7 +47,7 @@ class CategoryController {
     return res.status(StatusCodes.NO_CONTENT).json({});
   }
 
-  public async delete(req:Request, res:Response): Promise<Response> {
+  public async delete(req: Request, res: Response): Promise<Response> {
     const categoryId = +req.params.categoryId;
 
     const deleteCategory = AppContainer.resolve<DeleteCategoryService>(DeleteCategoryService);

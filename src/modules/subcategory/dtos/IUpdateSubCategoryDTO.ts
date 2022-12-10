@@ -1,6 +1,5 @@
 interface IUpdateSubCategoryDTO {
-  categoryId: number,
-  description: string,
+  description?: string,
   enabled?: boolean;
 }
 
