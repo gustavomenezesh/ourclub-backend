@@ -23,9 +23,7 @@ class ProductController {
     if (!req.files?.length) {
       throw new AppError('Images is missing in product', StatusCodes.BAD_REQUEST);
     }
-
-    const myfiles = JSON.parse(JSON.stringify(req.files));
-    const filenames = myfiles.map((file: any) => file.filename);
+    const filenames = (req.files as Express.Multer.File[]).map((file) => file.filename);
 
     const createProduct = AppContainer.resolve<CreateProductService>(CreateProductService);
     const product = await createProduct.execute({ filenames, data });

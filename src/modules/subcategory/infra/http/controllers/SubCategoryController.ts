@@ -15,8 +15,8 @@ class SubCategoryController {
   public async list(req: Request, res: Response): Promise<Response> {
 
     const categoryId = +req.params.category;
-    const createSubCategory = AppContainer.resolve<ListSubCategoryService>(ListSubCategoryService);
-    const subCategories = await createSubCategory.execute(categoryId);
+    const listSubCategory = AppContainer.resolve<ListSubCategoryService>(ListSubCategoryService);
+    const subCategories = await listSubCategory.execute(categoryId);
 
     return res.status(200).json(instanceToPlain(subCategories));
   }

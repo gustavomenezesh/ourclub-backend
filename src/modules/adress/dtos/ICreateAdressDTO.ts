@@ -7,8 +7,8 @@ interface ICreateAdressDTO {
   street: string,
   number: string,
   district: string;
-  complement?: string;
-  main?: boolean;
+  complement?: string,
+  main?: boolean,
 }
 
 export default ICreateAdressDTO;
