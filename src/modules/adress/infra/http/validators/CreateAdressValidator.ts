@@ -8,7 +8,7 @@ const schema = Z.object({
   street: Z.string().nonempty().max(64),
   number: Z.string().nonempty().max(5),
   district: Z.string().nonempty().max(64),
-  complement: Z.string().nonempty().max(64).nullable(),
+  complement: Z.string().nonempty().max(64),
 });
 
 export default schema;
