@@ -17,7 +17,7 @@ import Routes from '@common/infra/http/routes';
 import SwaggerOptions from '@docs/index';
 
 class App {
-  public readonly port: number = process.env.PORT ? Number(process.env.API_PORT) : 80;
+  public readonly port: number = process.env.PORT ? Number(process.env.API_PORT) : 0;
 
   private app: express.Application;
 
@@ -59,7 +59,7 @@ class App {
   }
 
   public start(): void {
-    this.server.listen((this.port), () => {
+    this.server.listen((this.port || 3000), () => {
       console.log(`${this.title}`);
       console.log(`${this.info}`);
     });
