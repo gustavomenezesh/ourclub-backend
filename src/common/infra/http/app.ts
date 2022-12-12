@@ -36,6 +36,7 @@ class App {
     this.routes();
     this.swagger();
     this.start();
+    console.log(this.port);
   }
 
   private middlewares(): void {
