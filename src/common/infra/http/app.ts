@@ -59,7 +59,7 @@ class App {
   }
 
   public start(): void {
-    this.server.listen((this.port || 80), () => {
+    this.server.listen((this.port || 8080), () => {
       console.log(`${this.title}`);
       console.log(`${this.info}`);
     });
