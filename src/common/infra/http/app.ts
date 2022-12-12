@@ -17,7 +17,7 @@ import Routes from '@common/infra/http/routes';
 import SwaggerOptions from '@docs/index';
 
 class App {
-  public readonly port: number = process.env.PORT ? Number(process.env.API_PORT) : 0;
+  public readonly port: number = process.env.PORT ? Number(process.env.PORT) : 8080;
 
   private app: express.Application;
 
