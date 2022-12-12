@@ -50,7 +50,7 @@ class CreateProductService {
           });
         });
         return product;
-      } catch (e) {
+      } catch (e: any) {
         throw new AppError(e, 500);
       }
     }

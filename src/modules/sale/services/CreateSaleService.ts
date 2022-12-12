@@ -51,7 +51,7 @@ class CreateProductService {
       };
 
       const sale = await this.saleRepository.create(saleBody);
-      const errors: String[] = [];
+      const errors: string[] = [];
       Promise.all(data.products.map(async (product) => {
         if (
           !(await this.productRepository.find({ id: product.product })

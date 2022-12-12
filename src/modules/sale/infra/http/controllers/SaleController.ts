@@ -16,7 +16,7 @@ import ListSaleService from '@modules/sale/services/ListSaleService';
 import { instanceToPlain } from 'class-transformer';
 
 class SaleController {
-  public async create(req:Request, res:Response): Promise<Response> {
+  public async create(req: Request, res: Response): Promise<Response> {
     const data = await CreateSaleValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
@@ -35,7 +35,7 @@ class SaleController {
     return res.status(200).json(instanceToPlain(sale));
   }
 
-  public async update(req:Request, res:Response): Promise<Response> {
+  public async update(req: Request, res: Response): Promise<Response> {
     const data = await UpdateSaleValidator.parseAsync(req.body).catch((err) => {
       throw new AppError(ParseZodValidationError(err), StatusCodes.BAD_REQUEST);
     });
