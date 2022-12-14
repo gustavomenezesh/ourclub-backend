@@ -10,5 +10,4 @@ yarn.lock
 .env
 yarn-error.log
 data/
-temp/
 ormconfig.json
