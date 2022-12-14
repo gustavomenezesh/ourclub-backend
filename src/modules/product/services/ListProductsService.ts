@@ -4,6 +4,8 @@ import Schema from '@modules/product/infra/http/validators/ListProductsValidator
 import ISubCategoryRepository from '@modules/subcategory/repositories/ISubCategoryRepository';
 import { inject, injectable } from 'inversify';
 import * as Z from 'zod';
+import fs from 'fs';
+import http from 'http';
 import IResponse from '@modules/product/responses/IListProductsResponse';
 import IImageRepository from '@modules/image/repositories/IImageRepository';
 import IProductRepository from '../repositories/IProductRepository';
@@ -68,10 +70,18 @@ class ListProductsService {
           value: product.value,
           description: product.description,
           gender: product.gender,
-          images: product.images?.map((image) => ({
-            url: image.url,
-          }
-          )),
+          images: product.images?.map((image) => {
+            const file = fs.createWriteStream(`temp/${image.url.split('/')[2]}`);
+            http.get(
+              `http://ec2-3-12-152-137.us-east-2.compute.amazonaws.com/${image.url}`,
+              (response) => {
+                response.pipe(file);
+              },
+            );
+            return {
+              url: image.url,
+            };
+          }),
         }
       ));
     }
