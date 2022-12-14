@@ -47,7 +47,7 @@ class App {
 
   private routes(): void {
     this.app.use('/api/v1', Routes);
-    this.app.use('/api/data', express.static('data'));
+    this.app.use('/api/data', express.static('temp'));
     this.app.use(GlobalExceptionHandler);
   }
 
